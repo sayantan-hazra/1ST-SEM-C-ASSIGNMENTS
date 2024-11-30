@@ -1,0 +1,140 @@
+/*
+
+What is an Array in C?
+An array in C is a collection of elements of the same data type stored at contiguous memory locations. It provides an easy way to access and manipulate large amounts of data by using indices.
+
+Characteristics of Arrays in C:
+Fixed Size: The size of an array must be specified during its declaration and cannot be changed later.
+Homogeneous Elements: All elements must be of the same type (e.g., int, float, char).
+Indexed Access: Elements are accessed using zero-based indices (arr[0], arr[1], etc.).
+
+Types of Arrays in C
+
+One-Dimensional Array: A linear sequence of elements.
+
+Declaration:
+int arr[5];
+
+Example:
+#include <stdio.h>
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
+Output: 1 2 3 4 5
+
+Two-Dimensional Array: A matrix-like structure with rows and columns.
+
+Declaration:
+int arr[3][3];
+
+Example:
+#include <stdio.h>
+int main() {
+    int arr[2][3] = {{1, 2, 3}, {4, 5, 6}};
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+Output:
+
+1 2 3
+4 5 6
+
+
+
+
+
+
+
+
+
+
+
+
+What is a String in C?
+A string in C is an array of characters terminated by a null character (\0). Strings in C are essentially one-dimensional arrays of characters.
+
+Characteristics of Strings:
+Strings are stored as character arrays.
+A string always ends with a null character (\0).
+Examples of Strings in C:
+Declaring and Initializing Strings:
+
+#include <stdio.h>
+int main() {
+    char str1[] = "Hello";  // Automatically adds '\0'
+    char str2[6] = {'W', 'o', 'r', 'l', 'd', '\0'};
+    printf("%s %s\n", str1, str2);  // Output: Hello World
+    return 0;
+}
+
+
+
+
+
+
+Here are short notes on the commonly used string manipulation functions in C:
+
+1. strcpy() – Copy a String
+Prototype: char* strcpy(char *dest, const char *src);
+Purpose: It copies the contents of the source string (src) to the destination string (dest), including the null-terminating character '\0'.
+Note: The destination array must be large enough to hold the source string.
+
+Example:
+char src[] = "Hello";
+char dest[20];
+strcpy(dest, src);  // dest now contains "Hello"
+
+2. strcat() – Concatenate Two Strings
+Prototype: char* strcat(char *dest, const char *src);
+Purpose: It appends the source string (src) to the end of the destination string (dest). The null terminator of dest is replaced by the first character of src, and src is terminated with a null character at the end.
+Note: The destination string should be large enough to accommodate the result.
+
+Example:
+char str1[20] = "Hello";
+char str2[] = " World!";
+strcat(str1, str2);  // str1 now contains "Hello World!"
+
+3. strrev() – Reverse a String
+Prototype: char* strrev(char *str); (Note: This function is available in some compilers like Turbo C or as a non-standard extension)
+Purpose: It reverses the string in place (modifies the string directly).
+Note: This is not part of the standard C library (<string.h>), but it is available in certain compilers, such as Turbo C. In standard C, you may need to implement your own string-reversal logic.
+
+Example:
+char str[] = "Hello";
+strrev(str);  // str now contains "olleH"
+
+4. strcmp() – Compare Two Strings
+Prototype: int strcmp(const char *str1, const char *str2);
+Purpose: It compares two strings lexicographically (i.e., character by character). It returns:
+A value less than 0 if str1 is lexicographically smaller than str2.
+0 if both strings are equal.
+A value greater than 0 if str1 is lexicographically greater than str2.
+
+Example:
+char str1[] = "apple";
+char str2[] = "banana";
+int result = strcmp(str1, str2);  // result will be negative (since "apple" < "banana")
+
+Summary of Return Values for strcmp():
+0: Strings are equal.
+<0: The first string is lexicographically less than the second.
+>0: The first string is lexicographically greater than the second.
+
+
+Notes:
+Safety: Always ensure that the destination string has enough space when using strcpy() and strcat() to avoid buffer overflows.
+Standard Library: strcpy(), strcat(), and strcmp() are part of the C Standard Library (defined in <string.h>).
+strrev(): This function is compiler-specific and not part of the C standard. You may need to write your own function to reverse a string in standard C.
+
+
+
+*/
